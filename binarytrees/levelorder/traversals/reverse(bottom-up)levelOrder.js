@@ -13,7 +13,6 @@ class Node {
 
 // Top-Down Approach
 const levelOrder = (root) => {
-    // console.log(root);
     let height_binary_tree = height(root);
     for (let i = 1; i <= height_binary_tree; i++) {
         getLevel(root, i);
@@ -23,8 +22,6 @@ const levelOrder = (root) => {
 // Bottom-Up Approach
 const levelOrderBottom = (root) => {
     let height_binary_tree = height(root);
-    
-    // reverse array
     let reverse_array = []
     for(let i = 1;i <= height_binary_tree; i++) {
         reverse_array.push(getLevel(root,i));
@@ -34,7 +31,6 @@ const levelOrderBottom = (root) => {
 }
 
 const height = (root) => {
-    // console.log(root.left);
     if (root === null) return 0;
     else {
         let lheight = height(root.left);
@@ -45,7 +41,6 @@ const height = (root) => {
 }
 
 const getLevel = (root, level, depth_ele = []) => {
-    // console.log(root,level);
     if (root === null) return;
     if (level === 1) depth_ele.push(root.val);
     else if (level > 1) {
@@ -72,8 +67,7 @@ const main = () => {
     root.right.right = new Node(7);
 
     // level order
-    console.log(levelOrderBottom(root));
-    // console.log(root);
+    levelOrderBottom(root);
 }
 
 main();
